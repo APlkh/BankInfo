@@ -237,7 +237,7 @@ public class DepositDaoMock implements DepositDao{
 
         if(earlyClose!=null){
             for (Deposit d:result) {
-                if(!payment.equals(d.getEarlyClose())){
+                if(!earlyClose.equals(d.getEarlyClose())){
                     temp.remove(d);
                 }
             }

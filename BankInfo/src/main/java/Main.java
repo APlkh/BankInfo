@@ -15,7 +15,7 @@ public class Main {
         session.close();
         sessionFactory.close();*/
         BankDaoMock bankDao=new BankDaoMock();
-        List<Deposit> list=bankDao.getDepDao().selectByParams("hryvna",6,null,null,null,null);
+        List<Deposit> list=bankDao.getDepDao().selectByParams("dollar",3,null,null,true,null);
         System.out.println();
     }
 }

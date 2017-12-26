@@ -24,10 +24,10 @@ public class BankInfoController extends HttpServlet {
 
     public String selectByBank(List<Deposit> list, int bankid) throws Exception {
         String s="";
-        s="<table style='margin-left: 50px'><tr><th>Название депозита</th><th>Процентная ставка</th><th>Валюта</th><th>Срок</th></tr>";
+        s="<table border=\"1\" style='margin-left: 50px' ><tr><th class='th1'>Название депозита  </th><th class='th1'>Процентная ставка  </th><th class='th1'>Валюта  </th><th class='th1'>Срок</th></tr>";
         Bank b=Bdao.select(bankid);
         for (Deposit deposit:list) {
-            if(deposit.getBank()==b) s+="<tr>"+"<td>"+deposit.getName()+"<td>"+"<td>"+deposit.getPercent()+ " % " +"<td>"+"<td>"+ deposit.getCurrency()+ "<td>"+"<td>"+ deposit.getTerm()+ "месяцев(а)"+"<td>"+"<tr>";
+            if(deposit.getBank()==b) s+="<tr>"+"<td>"+deposit.getName()+"</td>"+"<td>"+deposit.getPercent()+ " % " +"</td>"+"<td>"+ deposit.getCurrency()+ "</td>"+"<td>"+ deposit.getTerm()+ "месяцев(а)"+"</td>"+"</tr>";
         }
         s=s+"</table>";
         return s;
@@ -64,7 +64,9 @@ public class BankInfoController extends HttpServlet {
 
      Boolean aEarlyClose;
      String pEaC=request.getParameter("paramEarlyClose");
-     if(pEaC.equals("none"))aEarlyClose=null; else aEarlyClose= Boolean.valueOf(pEaC);
+     if(pEaC.equals("none"))aEarlyClose=null;
+     else aEarlyClose= Boolean.valueOf(pEaC);
+
 
      Boolean aRefill;
      String pRef=request.getParameter("paramRefill");
@@ -78,6 +80,7 @@ public class BankInfoController extends HttpServlet {
 
 
      List <Deposit> result=Ddao.selectByParams(Acurrency,Aterm,aPayment,aRefill,aEarlyClose,Abank);
+
         for (Bank b:Bdao.selectAll()) {
             try {
                 request.setAttribute("DepositsOf"+b.getBank_id(),selectByBank(result,b.getBank_id()));
@@ -86,8 +89,10 @@ public class BankInfoController extends HttpServlet {
             }
         }
 
-    request.setAttribute("aaa","aaa");
+  //  request.setAttribute("aaa","aaa");
+
         Enumeration attributes= request.getAttributeNames();
+
      while (attributes.hasMoreElements()){
          String str=attributes.nextElement().toString();
          System.out.println(str+": "+ request.getAttribute(str));

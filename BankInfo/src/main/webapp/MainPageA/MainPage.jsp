@@ -21,13 +21,21 @@ pageEncoding="utf-8"%>
     <link href="css/fonts.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Lato:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
-    
+    <style>
+            .background-image {
+                   background-image: url(MainPageA/qwer.jpg);
+                   width: 100%;
+                   height: 100%;
+                   -webkit-filter: blur(2px);
+                   background-attachment: fixed;
+               }
+         </style>
   </head>
 
   <body>
 
 
-   <form action="/bank-1.0/BankInfo">
+   <form action="/bank/BankInfo">
    <%!
         BankDao banks=new BankDaoMock();
         ArrayList<Bank> list=banks.selectAll();;
