@@ -9,7 +9,15 @@
     <version>1.2</version>
 
     <packaging>war</packaging>
-    <build> <finalName>bank</finalName></build>
+    <build> <finalName>bank</finalName>
+<plugins>
+    <plugin>
+        <groupId>com.spotify</groupId>
+        <artifactId>docker-maven-plugin</artifactId>
+        <version>0.4.10</version>
+    </plugin>
+</plugins>
+    </build>
 
 
 

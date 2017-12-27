@@ -1,0 +1,2 @@
+FROM tomcat
+ADD deploy C:\Apache Software Foundation\Tomcat 9.0\webapps
