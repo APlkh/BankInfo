@@ -17,5 +17,6 @@ public class Main {
         BankDaoMock bankDao=new BankDaoMock();
         List<Deposit> list=bankDao.getDepDao().selectByParams("dollar",3,null,null,true,null);
         System.out.println();
+        System.out.println();
     }
 }
